@@ -1,0 +1,40 @@
+#root {
+  /*max-width: 1280px;*/
+  width: 100%;
+  /*margin: 0 auto;*/
+  /*padding: 2rem;*/
+  text-align: center;
+}
+
+.titulo1{
+  text-align: center;
+  text-decoration: underline 2px solid;
+  background-color: black;
+  color: white;
+}
+
+.subtitulo1{
+  text-align: center;
+  text-decoration: underline 2px solid;
+  background-color: black;
+  color: white;
+}
+
+h3{
+  text-align: center;
+  text-decoration: underline 2px solid;
+}
+
+h4{
+  text-align: center;
+  text-decoration: underline 2px solid;
+}
+
+p{
+  text-align: center;
+}
+
+footer{
+  border-top: black 4px solid;
+  margin-top: 6px;
+}
