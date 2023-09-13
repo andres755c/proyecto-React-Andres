@@ -1,24 +1,34 @@
-import SubTitulo from "../SubTitulo/SubTitulo"
+import { useEffect, useState } from "react"
+import { mFetch } from "../../Fetch/mockFetch"
+import ItemList from "../ItemList/ItemList"
+import { useParams } from "react-router-dom"
 
-function ItemListerContainer() {
+const ItemListerContainer = () => {
+    const[productos, setProducto] = useState([])
+    const [ cargando, setCargando] = useState(true)
+    const { cid } = useParams()
+    console.log(cid)
+
+    useEffect(()=>{
+        if (cid) {
+        mFetch()
+        .then(respuesta => setProducto( respuesta.filter(producto => cid === producto.category)))
+        .catch(err => console.log(err))
+        .finally(()=> setCargando(false))
+    } else {
+        mFetch()
+        .then(respuesta => setProducto(respuesta))
+        .catch(err => console.log(err))
+        .finally(()=> setCargando(false))
+    }
+    
+    }, [])
+    
+    console.log(productos)
     return (
-        <div>
-    <SubTitulo subtitulo='Compra y vende productos'/>
-    <div>
-        <h3>Mouse Pad XL</h3>
-        <h4>Detalles del producto:</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, quis.</p>
-        <button>Agregar al carrito</button>
-        <h3>Teclado</h3>
-        <h4>Detalles del producto:</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, quis.</p>
-        <button>Agregar al carrito</button>
-        <h3>Mouse Logitech</h3>
-        <h4>Detalles del producto:</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, quis.</p>
-        <button>Agregar al carrito</button>
+        <div className="productos row" bd="bg-dark" data-bs-theme="dark">
+            {cargando ? <h2>Cargando productos...</h2> : <ItemList productos={productos} /> }
         </div>
-    </div>
     )
 }
 

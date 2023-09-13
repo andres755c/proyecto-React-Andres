@@ -6,10 +6,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CardWidget from '../CartWidget/CartWidget';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
-    <Navbar bd="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary ">
+    <Navbar bd="bg-dark" data-bs-theme="dark" className="navbar bg-black border-botton-0">
     <Container fluid>
         <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -19,8 +20,10 @@ function NavBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
         >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
+            <Nav.Link href="#action1"><Link to='/'>Menu</Link></Nav.Link>
+            <Nav.Link href="#action2"><Link to='/category/Pad'>Mouse Pad</Link></Nav.Link>
+            <Nav.Link href="#action3"><Link to='/category/Teclado'>Teclado</Link></Nav.Link>
+            <Nav.Link href="#action4"><Link to='/category/Mouse'>Mouse</Link></Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action4">
@@ -35,7 +38,9 @@ function NavBar() {
                 Link
             </Nav.Link>
         </Nav>
-        <CartWidget />
+        <Link to='/cart'>
+            <CartWidget />
+        </Link>
             <Form className="d-flex">
             <Form.Control
                 type="search"
