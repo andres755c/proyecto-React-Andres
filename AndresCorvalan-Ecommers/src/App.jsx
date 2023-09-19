@@ -38,7 +38,7 @@ function App() {
       <Routes>
         <Route path='/' element={<ItemListerContainer /> } />
         <Route path='/category/:cid' element={<ItemListerContainer /> } />
-        <Route path='/detalle' element={<ItemDetailContainer /> } />
+        <Route path='/detalle/:pid' element={<ItemDetailContainer /> } />
         <Route path='/' element={<ItemCount inicial={1} stock={5} onAdd={onAdd} /> } />
         <Route path='/cart' element={<CartContainer /> } />
       </Routes>

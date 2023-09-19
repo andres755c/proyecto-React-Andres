@@ -22,7 +22,7 @@ const ItemListerContainer = () => {
         .finally(()=> setCargando(false))
     }
     
-    }, [])
+    }, [cid])
     
     console.log(productos)
     return (

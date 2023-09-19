@@ -1,6 +1,6 @@
 
 
-const ItemDetail = ({producto}) => {
+const ItemDetail = ({producto, find}) => {
     console.log(producto)
     return (
         <div className="row">
