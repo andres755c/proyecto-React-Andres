@@ -6,6 +6,6 @@ const productos = [
 
 export const mFetch = (pid) => new Promise((res,rej) => {
         setTimeout(()=>{
-            res(pid  ? productos.find(producto => producto.id = pid) : productos)
+            res(pid  ? productos.find(producto => producto.id === Number(pid)) : productos)
         }, 2000)
 })
