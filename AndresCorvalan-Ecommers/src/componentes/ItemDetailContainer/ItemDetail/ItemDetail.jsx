@@ -1,7 +1,12 @@
-
+import { useCartContext } from "../../../context/CartContext"
+import ItemCount from "../../ItemCount/ItemCount"
 
 const ItemDetail = ({producto, find}) => {
-    console.log(producto)
+    const {addProduct} = useCartContext()
+    const onAdd = (quantity) => {
+        addProduct({ ...producto, quantity: count})
+    }
+    console.log(cartList)
     return (
         <div className="row">
             <div className="col">
@@ -13,6 +18,9 @@ const ItemDetail = ({producto, find}) => {
                     </p>
                     <p>Stock: {producto.stock}</p>
                 </div>
+            </div>
+            <div>
+                <ItemCount inicial={1} stock={5} onAdd={onAdd} />
             </div>
         </div>
     )

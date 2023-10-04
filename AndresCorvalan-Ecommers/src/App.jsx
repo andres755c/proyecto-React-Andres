@@ -12,6 +12,7 @@ import ItemListerContainer from './componentes/ItemListerContainer/ItemListerCon
 import ItemCount from './componentes/ItemCount/ItemCount';
 import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
 import CartContainer from './componentes/CartContainer/CartContainer';
+import CartContextProvider, { CartContext } from './context/CartContext'
 
 
 function Footer() {
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <Router>
+      <CartContextProvider>
         <Titulo />
         <NavBar />
       <Routes>
@@ -41,8 +43,9 @@ function App() {
         <Route path='/detalle/:pid' element={<ItemDetailContainer /> } />
         <Route path='/' element={<ItemCount inicial={1} stock={5} onAdd={onAdd} /> } />
         <Route path='/cart' element={<CartContainer /> } />
-      </Routes>
+        </Routes>
       <Footer />
+      </CartContextProvider>
     </Router>
   )
 }
