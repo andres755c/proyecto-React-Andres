@@ -40,6 +40,12 @@ h3{
   text-shadow: 5px 5px 5px red;
 }
 
+.titulos3{
+  text-align: center;  
+  text-shadow: 5px 5px 5px red;
+  color: white;
+}
+
 p{
   text-align: center;
 }
@@ -66,6 +72,26 @@ footer{
   color: black;
   background-color: white;
   border: 7px solid red;
+  border-radius: 100px;
+}
+
+.botonesExtra{
+  height: 50px;
+  color: white;
+  background-color: black;
+  text-shadow: 3px 3px 3px red;
+  font-size: 20px;
+  border: 3px solid red;
+  margin: 10px;
+  padding: 5px;
+}
+
+.botonesExtra:hover{
+  transition: 3s;
+  color: red;
+  color: black;
+  background-color: white;
+  border: 3px solid red;
   border-radius: 100px;
 }
 

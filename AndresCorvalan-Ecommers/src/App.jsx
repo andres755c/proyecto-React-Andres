@@ -12,7 +12,7 @@ import ItemListerContainer from './componentes/ItemListerContainer/ItemListerCon
 import ItemCount from './componentes/ItemCount/ItemCount';
 import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
 import CartContainer from './componentes/CartContainer/CartContainer';
-import CartContextProvider, { CartContext } from './context/CartContext'
+import CartContextProvider from './context/CartContext'
 
 
 function Footer() {

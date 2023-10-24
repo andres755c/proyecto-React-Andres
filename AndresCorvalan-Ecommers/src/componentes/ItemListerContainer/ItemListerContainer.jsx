@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore"
 import { mFetch } from "../../Fetch/mockFetch"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
@@ -11,13 +12,18 @@ const ItemListerContainer = () => {
 
     useEffect(()=>{
         if (cid) {
-        mFetch()
-        .then(respuesta => setProducto( respuesta.filter(producto => cid === producto.category)))
-        .catch(err => console.log(err))
-        .finally(()=> setCargando(false))
+            const database = getFirestore()
+            const queryCollection = collection(database, 'productos')
+            const queryFiltrado = query(queryCollection, where('category', '==', cid))
+            getDocs(queryFiltrado)
+            .then(resp => setProducto(resp.docs.map(prod => ( { id : prod.id, ...prod.data() } ) ) ) )
+            .catch(err => console.log(err))
+            .finally(()=> setCargando(false))
     } else {
-        mFetch()
-        .then(respuesta => setProducto(respuesta))
+        const database = getFirestore()
+        const queryCollection = collection(database, 'productos')
+        getDocs(queryCollection)
+        .then(resp => setProducto(resp.docs.map(prod => ( { id : prod.id, ...prod.data() } ) ) ) )
         .catch(err => console.log(err))
         .finally(()=> setCargando(false))
     }
